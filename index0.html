@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex 布局</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh; /* 设置高度为视口高度 */
+        background-color: #eee;
+      }
+      /* * {
+        border: 1px solid black;
+      } */
+      .shadow {
+        box-shadow: rgb(0 0 0 /20%) 0px 2px 1px -1px,
+          rgb(0 0 0 /14%) 0px 1px 1px 0px, rgb(0 0 0 /12%) 0px 1px 3px 0px;
+      }
+      .flex {
+        display: flex;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .white {
+        background-color: white;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .mg8 {
+        margin: 8px;
+      }
+      .mgr8 {
+        margin-right: 8px;
+      }
+      .mgt8 {
+        margin-top: 8px;
+      }
+      .daoHang {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(190, 190, 190);
+        font-size: 14px;
+        color: #666;
+      }
+      /* 侧边栏隐藏在小屏幕上 */
+      @media (max-width: 600px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          flex-direction: column;
+        }
+        .data {
+          flex-direction: column;
+        }
+        .rightSector {
+          margin-left: 8px;
+        }
+        .dataBlock {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      }
+      /* 去除滚动条 */
+      .content::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!-- 侧边栏 -->
+    <div style="width: 200px; z-index: 2" class="sidebar white shadow">
+      <!-- 头像栏 -->
+      <div
+        class="flex"
+        style="
+          padding: 10px;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #ccc;
+        "
+      >
+        <img
+          src="https://i.postimg.cc/Px078Y54/User-Avatar.jpg"
+          alt="User Avatar"
+          width="40px"
+        />
+        <div style="margin-left: 10px">乌龟</div>
+      </div>
+      <!-- 导航栏 -->
+      <div class="flex1">
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+      </div>
+    </div>
+    <!-- 主区域 -->
+    <div class="flex1 flex column">
+      <!-- 头部栏 -->
+      <div style="height: 60px; z-index: 1" class="white shadow"></div>
+      <!-- 内容区 -->
+      <div style="overflow: auto" class="content flex1 flex">
+        <!-- 左区 -->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 数据区 -->
+          <div class="flex data dataBlock">
+            <!-- 数据块 -->
+            <div style="height: 100px" class="flex1 white mgr8 shadow"></div>
+            <div style="height: 100px" class="flex1 white mgr8 shadow"></div>
+            <div style="height: 100px" class="flex1 white mgr8 shadow"></div>
+            <div style="height: 100px" class="flex1 white shadow"></div>
+          </div>
+          <!-- 列表区 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div style="height: 160px" class="white mgt8 shadow"></div>
+            <div style="height: 160px" class="white mgt8 shadow"></div>
+            <div style="height: 160px" class="white mgt8 shadow"></div>
+            <div style="height: 160px" class="white mgt8 shadow"></div>
+            <div style="height: 160px" class="white mgt8 shadow"></div>
+            <div style="height: 160px" class="white mgt8 shadow"></div>
+          </div>
+        </div>
+        <!-- 右区 -->
+        <div style="flex: 1" class="rightSector flex column mgr8 mgt8">
+          <!-- 提示区 -->
+          <div style="height: 150px" class="white shadow"></div>
+          <!-- 消息区 -->
+          <div style="height: 300px" class="white mgt8 shadow"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
